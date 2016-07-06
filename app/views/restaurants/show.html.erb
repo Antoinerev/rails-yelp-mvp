@@ -16,11 +16,23 @@
       <hr>
     </div>
   </div>
-    <div class="row ">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= render 'reviews/form_review' %>
+      <hr>
+    </div>
+
+  </div>
+  <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <ul class="list-unstyled">
         <% @reviews.each do |review| %>
-          <li><%= "rating: #{review.rating}" %></li>
+          <li>Rating:
+
+            <% review.rating.to_i.times do %>
+            <%= "*" %>
+            <% end %>
+          </li>
           <li><%= review.content %></li>
           <li><hr></li>
         <% end %>
@@ -32,7 +44,7 @@
 
     <%= link_to "Back to index", restaurants_path %>
     ||
-    <%= link_to "Delete this restaurant", restaurant_path(@restaurant), method: :Delete %>
+    <%= link_to "Delete this restaurant", restaurant_path(@restaurant), method: :Delete, data: {confirm: "Are your sure?"} %>
     ||
     <%= link_to "Edit restaurant details", edit_restaurant_path(@restaurant) %>
     ||
