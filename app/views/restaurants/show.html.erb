@@ -1,4 +1,27 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="text-center">
+  <h1>Restaurants#show</h1>
+  <p>Find me in app/views/restaurants/show.html.erb</p>
+</div>
 
-<%= @restaurant %>
+<div class="container">
+  <div class="row padded">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <ul class="list-unstyled">
+        <li><%= @restaurant.name %></li>
+        <li><%= @restaurant.address %></li>
+        <li><%= @restaurant.phone_number %></li>
+        <li><%= @restaurant.category %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+
+    <%= link_to "Back to index", restaurants_path %>
+    ||
+    <%= link_to "Delete this restaurant", restaurant_path(@restaurant), method: :Delete %>
+    ||
+    <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %>
+    </div>
+  </div>
+</div>
