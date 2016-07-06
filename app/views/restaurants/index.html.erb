@@ -1,0 +1,10 @@
+<h1>Restaurants#index</h1>
+
+
+<ol>
+
+    <% @restaurants.each do |restaurant| %>
+    <li><%= "#{restaurant.name} - #{restaurant.address}" %></li>
+    <% end %>
+
+</ol>
